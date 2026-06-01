@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Local Community Event Portal</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+
+        nav {
+            background-color: #2c3e50;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-weight: bold;
+        }
+
+        #welcomeBanner {
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .highlight {
+            background-color: yellow;
+            color: black;
+            padding: 2px;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        table {
+            margin: auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .eventImage {
+            width: 220px;
+            height: 150px;
+            border: 3px solid #3498db;
+            cursor: pointer;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 12px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #videoMsg,
+        #result,
+        #fee,
+        #location {
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+        <a href="help.html" target="_blank">Help</a>
+    </nav>
+
+    <!-- Welcome Banner -->
+
+    <div id="welcomeBanner">
+        <h1>Local Community Event Portal</h1>
+
+        <p>
+            Welcome to our community website.
+            <span style="color:red;font-weight:bold;">
+                Register today for upcoming events!
+            </span>
+        </p>
+
+        <p class="highlight">
+            New community activities are available this month.
+        </p>
+    </div>
+
+    <!-- Home -->
+
+    <section id="home">
+        <h2>About Us</h2>
+
+        <p>
+            This portal helps residents register for local events,
+            view activities and access community services.
+        </p>
+    </section>
+
+    <!-- Event Gallery -->
+
+    <section id="events">
+
+        <h2>Community Event Gallery</h2>
+
+        <table border="1">
+
+            <tr>
+                <td>
+                    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600"
+                        alt="Tree Plantation"
+                        title="Tree Plantation Drive"
+                        class="eventImage"
+                        ondblclick="enlargeImage(this)">
+                    <br>
+                    Tree Plantation Drive
+                </td>
+
+                <td>
+                    <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600"
+                        alt="Marathon"
+                        title="Community Marathon"
+                        class="eventImage"
+                        ondblclick="enlargeImage(this)">
+                    <br>
+                    Community Marathon
+                </td>
+
+                <td>
+                    <img src="https://images.unsplash.com/photo-1515169067868-5387ec356754?w=600"
+                        alt="Workshop"
+                        title="Art Workshop"
+                        class="eventImage"
+                        ondblclick="enlargeImage(this)">
+                    <br>
+                    Art Workshop
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600"
+                        alt="Festival"
+                        title="Music Festival"
+                        class="eventImage"
+                        ondblclick="enlargeImage(this)">
+                    <br>
+                    Music Festival
+                </td>
+
+                <td>
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=600"
+                        alt="Food Festival"
+                        title="Food Festival"
+                        class="eventImage"
+                        ondblclick="enlargeImage(this)">
+                    <br>
+                    Food Festival
+                </td>
+
+                <td>
+                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600"
+                        alt="Cultural Event"
+                        title="Cultural Program"
+                        class="eventImage"
+                        ondblclick="enlargeImage(this)">
+                    <br>
+                    Cultural Program
+                </td>
+            </tr>
+
+        </table>
+
+    </section>
+
+    <!-- Registration Form -->
+
+    <section>
+
+        <h2>Event Registration Form</h2>
+
+        <form onsubmit="registerEvent(); return false;">
+
+            <label>Name</label>
+            <input type="text"
+                placeholder="Enter your name"
+                required
+                autofocus>
+
+            <label>Email</label>
+            <input type="email"
+                placeholder="Enter email"
+                required>
+
+            <label>Date</label>
+            <input type="date" required>
+
+            <label>Event Type</label>
+
+            <select id="eventType" onchange="showFee()">
+                <option value="">Select Event</option>
+                <option value="100">Tree Plantation</option>
+                <option value="200">Community Marathon</option>
+                <option value="300">Art Workshop</option>
+            </select>
+
+            <div id="fee"></div>
+
+            <label>Message</label>
+
+            <textarea placeholder="Enter message"></textarea>
+
+            <button type="submit" onclick="confirmRegister()">
+                Register
+            </button>
+
+            <output id="result"></output>
+
+        </form>
+
+    </section>
+
+    <!-- Feedback Section -->
+
+    <section>
+
+        <h2>Event Feedback</h2>
+
+        <label>Phone Number</label>
+
+        <input type="text"
+            id="phone"
+            placeholder="Enter 10 digit number"
+            onblur="validatePhone()">
+
+        <p id="phoneMsg"></p>
+
+        <label>Feedback</label>
+
+        <textarea id="feedback"
+            rows="4"
+            onkeyup="countCharacters()"
+            placeholder="Type your feedback"></textarea>
+
+        <p>
+            Characters Typed:
+            <span id="charCount">0</span>
+        </p>
+
+    </section>
+
+    <!-- Video Section -->
+
+    <section>
+
+        <h2>Event Promo Video</h2>
+
+        <video width="400"
+            controls
+            oncanplay="videoReady()">
+
+            <source src="event2-compressed.mp4" type="video/mp4">
+
+        </video>
+
+        <p id="videoMsg"></p>
+
+    </section>
+
+    <!-- Save Preferences -->
+
+    <section>
+
+        <h2>Save Preferred Event</h2>
+
+        <select id="prefEvent">
+            <option>Tree Plantation</option>
+            <option>Community Marathon</option>
+            <option>Art Workshop</option>
+        </select>
+
+        <button onclick="savePreference()">
+            Save Preference
+        </button>
+
+        <button onclick="clearPreference()">
+            Clear Preferences
+        </button>
+
+    </section>
+
+    <!-- Geolocation -->
+
+    <section>
+
+        <h2>Find Nearby Events</h2>
+
+        <button onclick="findLocation()">
+            Find Nearby Events
+        </button>
+
+        <p id="location"></p>
+
+    </section>
+
+    <!-- Contact -->
+
+    <section id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>Email : communityportal@gmail.com</p>
+
+        <p>Phone : +91 9876543210</p>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+        <p>
+            Developed for HTML5 Local Community Event Portal Project
+        </p>
+    </footer>
+
+    <script>
+
+        console.log("Portal Loaded");
+
+        function registerEvent() {
+            document.getElementById("result").value =
+                "Registration Successful";
+        }
+
+        function confirmRegister() {
+            console.log("Register button clicked");
+        }
+
+        function showFee() {
+            let fee = document.getElementById("eventType").value;
+            document.getElementById("fee").innerHTML =
+                "Event Fee : ₹" + fee;
+        }
+
+        function validatePhone() {
+
+            let phone =
+                document.getElementById("phone").value;
+
+            if (phone.length != 10) {
+                document.getElementById("phoneMsg").innerHTML =
+                    "Enter valid 10 digit number";
+            }
+            else {
+                document.getElementById("phoneMsg").innerHTML =
+                    "Valid Number";
+            }
+        }
+
+        function countCharacters() {
+
+            let text =
+                document.getElementById("feedback").value;
+
+            document.getElementById("charCount").innerHTML =
+                text.length;
+        }
+
+        function enlargeImage(img) {
+
+            if (img.style.width == "300px") {
+                img.style.width = "220px";
+            }
+            else {
+                img.style.width = "300px";
+            }
+        }
+
+        function videoReady() {
+            document.getElementById("videoMsg").innerHTML =
+                "Video ready to play";
+        }
+
+        function savePreference() {
+
+            let eventName =
+                document.getElementById("prefEvent").value;
+
+            localStorage.setItem("event", eventName);
+            sessionStorage.setItem("event", eventName);
+
+            alert("Preference Saved");
+        }
+
+        window.onload = function () {
+
+            let saved =
+                localStorage.getItem("event");
+
+            if (saved) {
+                document.getElementById("prefEvent").value = saved;
+            }
+        }
+
+        function clearPreference() {
+
+            localStorage.clear();
+            sessionStorage.clear();
+
+            alert("Preferences Cleared");
+        }
+
+        function findLocation() {
+
+            navigator.geolocation.getCurrentPosition(
+                success,
+                error,
+                {
+                    enableHighAccuracy: true,
+                    timeout: 5000
+                }
+            );
+        }
+
+        function success(position) {
+
+            document.getElementById("location").innerHTML =
+                "Latitude : " +
+                position.coords.latitude +
+                "<br>Longitude : " +
+                position.coords.longitude;
+        }
+
+        function error(err) {
+
+            document.getElementById("location").innerHTML =
+                "Location Error : " + err.message;
+        }
+
+        window.onbeforeunload = function () {
+            return "Are you sure you want to leave this page?";
+        }
+
+    </script>
+
+</body>
+
+</html>
