@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Community Event Portal</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+
+<body>
+
+<header class="hero">
+
+<h1>Community Event Portal</h1>
+
+<p>Discover and Register for Community Events</p>
+
+</header>
+
+<section class="stats">
+
+<div class="stat-card">
+<h2 id="totalEvents">0</h2>
+<p>Total Events</p>
+</div>
+
+<div class="stat-card">
+<h2 id="totalRegs">0</h2>
+<p>Registrations</p>
+</div>
+
+<div class="stat-card">
+<h2 id="availableSeats">0</h2>
+<p>Available Seats</p>
+</div>
+
+</section>
+
+<section class="filters">
+
+<input
+type="text"
+id="search"
+placeholder="Search Event">
+
+<select id="categoryFilter">
+
+<option value="All">All Categories</option>
+
+<option value="Music">Music</option>
+
+<option value="Workshop">Workshop</option>
+
+<option value="Sports">Sports</option>
+
+</select>
+
+</section>
+
+<div id="loader">
+Loading Events...
+</div>
+
+<section id="eventContainer">
+</section>
+
+<section class="form-section">
+
+<h2>Add Event</h2>
+
+<form id="eventForm">
+
+<input
+type="text"
+id="eventName"
+placeholder="Event Name"
+required>
+
+<select id="eventCategory">
+
+<option value="Music">Music</option>
+
+<option value="Workshop">Workshop</option>
+
+<option value="Sports">Sports</option>
+
+</select>
+
+<input
+type="text"
+id="eventLocation"
+placeholder="Location"
+required>
+
+<input
+type="number"
+id="eventSeats"
+placeholder="Seats"
+required>
+
+<button type="submit">
+Add Event
+</button>
+
+</form>
+
+</section>
+
+<section class="form-section">
+
+<h2>Event Registration</h2>
+
+<form id="registrationForm">
+
+<input
+type="text"
+name="name"
+placeholder="Your Name"
+required>
+
+<input
+type="email"
+name="email"
+placeholder="Email"
+required>
+
+<select
+name="event"
+id="eventSelect">
+
+<option value="">
+Select Event
+</option>
+
+</select>
+
+<button
+type="submit"
+id="registerBtn">
+
+Submit Registration
+
+</button>
+
+</form>
+
+<p id="msg"></p>
+
+</section>
+
+<script src="main.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+$("#registerBtn").click(function(){
+
+$(".event-card").fadeOut(300);
+
+$(".event-card").fadeIn(300);
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
