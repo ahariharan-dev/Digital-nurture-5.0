@@ -1,0 +1,397 @@
+/* =========================
+   UNIVERSAL SELECTOR
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* =========================
+   BODY STYLES
+========================= */
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:
+    linear-gradient(
+    rgba(255,255,255,0.90),
+    rgba(255,255,255,0.90)),
+    url("https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1600");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    color:#333;
+
+    line-height:1.8;
+}
+
+/* =========================
+   HEADER STYLES
+========================= */
+
+#mainHeader{
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff6f00,
+    #ff9800);
+
+    color:white;
+
+    text-align:center;
+
+    padding:50px 20px;
+}
+
+#mainHeader p{
+    margin-top:10px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav{
+    background:#212121;
+}
+
+.nav-menu{
+
+    list-style:none;
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+}
+
+.nav-menu li{
+
+    padding:15px 20px;
+}
+
+/* =========================
+   LINK STYLING
+========================= */
+
+a:link{
+    color:white;
+    text-decoration:none;
+}
+
+a:visited{
+    color:#dddddd;
+}
+
+a:hover{
+    color:#ff9800;
+}
+
+a:active{
+    color:red;
+}
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title{
+
+    background:
+    linear-gradient(
+    to right,
+    #ff6f00,
+    #ffb300);
+
+    color:white;
+
+    text-align:center;
+
+    padding:15px;
+
+    margin-top:30px;
+}
+
+/* =========================
+   ELEMENT SELECTOR
+========================= */
+
+h2{
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+/* =========================
+   EVENT CONTAINER
+========================= */
+
+.event-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+    padding:30px;
+}
+
+/* =========================
+   EVENT CARD
+========================= */
+
+.eventCard{
+
+    width:320px;
+
+    background:white;
+
+    border:3px solid #ff6f00;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    margin:10px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.15);
+
+    transition:0.3s;
+}
+
+.eventCard:hover{
+
+    transform:translateY(-8px);
+
+    outline:3px solid #ffb300;
+}
+
+/* =========================
+   GROUPING SELECTOR
+========================= */
+
+h3,p{
+    margin-bottom:12px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.cta-button{
+
+    background:#ff6f00;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 20px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+}
+
+.cta-button:hover{
+
+    background:#e65100;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+table{
+
+    width:90%;
+
+    margin:25px auto;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    text-align:center;
+}
+
+th{
+
+    background:#ff6f00;
+
+    color:white;
+}
+
+th,
+td{
+
+    border:1px solid #ddd;
+
+    padding:12px;
+}
+
+tr:nth-child(even){
+
+    background:orange;
+}
+
+/* =========================
+   MULTI COLUMN NEWS
+========================= */
+
+.news{
+
+    background:orange;
+
+    margin:25px;
+
+    padding:20px;
+
+    column-count:2;
+
+    column-gap:30px;
+
+    column-rule:1px solid gray;
+}
+
+/* =========================
+   LIST STYLING
+========================= */
+
+.custom-list{
+
+    list-style-type:square;
+
+    list-style-position:inside;
+    
+
+    padding:25px;
+}
+
+.custom-list li{
+
+    margin:10px;
+
+    padding:5px;
+}
+
+/* =========================
+   FORM
+========================= */
+
+form{
+
+    width:80%;
+
+    margin:auto;
+
+    padding:20px;
+}
+
+.form-field{
+
+    width:100%;
+
+    padding:12px;
+
+    margin:10px 0;
+
+    border:1px solid #ccc;
+
+    border-radius:5px;
+}
+
+.form-field:focus{
+
+    outline:3px solid orange;
+}
+
+/* =========================
+   HIDDEN VS NONE
+========================= */
+
+.hidden-box{
+
+    visibility:hidden;
+
+    padding:20px;
+}
+
+.none-box{
+
+    display:none;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    background:#212121;
+
+    color:white;
+
+    text-align:center;
+
+    padding:20px;
+
+    margin-top:30px;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media screen and (max-width:768px){
+
+    .nav-menu{
+
+        flex-direction:column;
+
+        text-align:center;
+    }
+
+    .event-container{
+
+        flex-direction:column;
+
+        align-items:center;
+    }
+
+    .eventCard{
+
+        width:90%;
+    }
+
+    .news{
+
+        column-count:1;
+    }
+
+    h1{
+
+        font-size:6vw;
+    }
+
+    h2{
+
+        font-size:5vw;
+    }
+
+    body{
+
+        font-size:14px;
+    }
+}
